@@ -2,22 +2,50 @@
 //
 
 #include <iostream>
+#include <map>
+
 #include "registry_helper.h"
 
+using namespace std;
 
-int main()
+enum class distance_option {wide, medium, narrow};
+
+const map<const char*, distance_option> distance_map{
+	{"w", distance_option::wide },
+	{"m", distance_option::medium},
+	{"n", distance_option::narrow},
+};
+
+struct options
 {
-	std::cout << "Windows 11 desktop icon spacing utility\n" << registry_helper::is_windows_eleven() << " " << false;
+	distance_option distance;
+	bool update;
+};
 
+auto get_options(const int argc, char* argv[]) -> options 
+{
+	auto distance = distance_option::wide;
+	auto update = false;
+
+	for (int i = 1; i < argc; i++)
+	{
+				
+	}
+
+	return {
+		distance,
+		update
+	};
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+auto main(const int argc, char *argv[]) -> int
+{
+	cout << "Windows 11 desktop icon spacing utility\n";
+	if (!registry_helper::is_windows_eleven())
+	{
+		cout << "This utility is for Windows 11 or greater.";
+		return -11;
+	}
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	auto options = get_options(argc, argv);
+}
