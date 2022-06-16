@@ -7,7 +7,7 @@
 
 int main()
 {
-	std::cout << "Windows 11 desktop icon spacing utility\n" << registry_helper::is_windows_elven();
+	std::cout << "Windows 11 desktop icon spacing utility\n" << registry_helper::is_windows_eleven() << " " << false;
 
 }
 
