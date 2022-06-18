@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cmd_line_parser.cpp" />
     <ClCompile Include="icon_spacing.cpp" />
     <ClCompile Include="registry_helper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cmd_line_parser.h" />
     <ClInclude Include="registry_helper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
